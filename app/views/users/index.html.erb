@@ -1,0 +1,27 @@
+
+<%= link_to 'Novo', new_user_path %>
+
+<table class="container table table-light">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.nome %></td>
+      <td><%= u.sobrenome %></td>
+      <td>
+        <picture>
+          <source srcset="<%= (url_for(u.image)) %>" type="image/svg+xml">
+          <img width="200" height="200" class="img-thumbnail" src="<%= (url_for(u.image)) %>" alt="Not Found">
+        </picture>
+        <%= link_to 'Visualizar', user_path(u.id), class: 'btn btn-outline-primary' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
