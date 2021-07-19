@@ -25,6 +25,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:nome, :sobrenome, :image)
+    params.require(:user).permit(:nome, :sobrenome, images: [])
   end
 end

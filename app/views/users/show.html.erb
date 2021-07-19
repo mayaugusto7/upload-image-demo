@@ -1,4 +1,7 @@
-<picture>
-  <source srcset="<%= (url_for(@user.image)) %>" type="image/svg+xml">
-  <img class="img-fluid img-thumbnail" src="<%= (url_for(@user.image)) %>" alt="Not Found">
-</picture>
+<% @user.images.each do |img| %>
+  <% binary = img.download %>
+  <picture>
+    <source srcset="<%= (url_for(img)) %>" type="image/svg+xml">
+    <img width="500" height="500" class="img-fluid img-thumbnail" src="<%= (url_for(img)) %>" alt="Not Found">
+  </picture>
+<% end %>
